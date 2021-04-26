@@ -144,7 +144,7 @@
     - 시각화 결과 같은 기기라도 유입채널이 다르면 다른 분포를 가지고 있음.
     - 두 변수를 결합하여 선호하는 경로를 데이터에 반영.
 
-### □ [User2Vec](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/05.User2Vec_%ED%95%99%EC%8A%B5.ipynb)
+### □ [User2Vec](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/05.User2Vec_%ED%95%99%EC%8A%B5.ipynb)
 
 User2Vec을 활용하여 같은 품목을 구매한 User들의 상관관계를 분석.
 
@@ -152,7 +152,7 @@ User2Vec을 활용하여 같은 품목을 구매한 User들의 상관관계를 �
 
 - 유사한 상품에 대하여 Cosine Similarity값이 상대적으로 높은 것을 확인.
 
-### □ [Feature Selection](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/05.User2Vec_%ED%95%99%EC%8A%B5.ipynb)
+### □ [Feature Selection](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/06.feature_%EC%84%A0%ED%83%9D.ipynb)
 
 Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)에 대한 시각화 수행.
 
@@ -160,7 +160,7 @@ Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)�
 
 - 모델에 적용할 Input Feature 선택 시, Feature Importance 수치를 반영하여 상대적으로 낮은 수치의 Feature는 Input Data에서 제외.
 
-### □ [Model](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
+### □ [Model](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
 - Wide model과 Deep Model이 결합된 형태인 Wide & Deep 모델을 사용
 
@@ -169,7 +169,7 @@ Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)�
 - Wide 모델의 경우 Categorical Feature에 대하여 Cross Product 수행하여 새로운 Feature 생성.
 - Deep 모델의 경우 Continuous Feature와 Categorical Feature를 Embedding 하여 복합 적용.
 
-### □ [Evaluation](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
+### □ [Evaluation](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
 - 모델 평가를 위하여 mAP(Mean Average Precision), Entropy-Diversity 평가 지표를 활용
 - 모델이 예측 점수가 높은 상품에 대하여 우선적으로 추천을 수행하므로, 상위 추천 아이템의 구매가 이루어졌을 때, 더 높은 점수를 부여할 수 있는 mAP 지표 활용.

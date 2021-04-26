@@ -84,7 +84,7 @@
 
 ## Process
 
-### □ [EDA](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/02.%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA.ipynb)
+### □ [EDA](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/02.%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA.ipynb)
 
 - 온라인 행동 유형 시각화
 
@@ -109,7 +109,7 @@
     - 고객의 나이는 30대가 35.2% 40대가 40.4%로 다수 분포.
     - 30대~40대 여성 성향에 따른 구매 품목 다수에 영향이 있을 것으로 판단.
 
-### □ [Keyword Crawling](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/00.Sech_kwd_%EB%A7%A4%ED%95%91.ipynb)
+### □ [Keyword Crawling](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/00.Sech_kwd_%EB%A7%A4%ED%95%91.ipynb)
 
 - 온라인 행동 데이터는 "검색, 목록, 세부정보, 장바구니 추가, 장바구니 선택, 결제 시도, 구매 완료, 결재 옵션" 8가지 행동 중 
   오직 "구매"  데이터에만, trans_id 값이 존재하여, 다른 행동이 어떤 상품에 대한 행동인지 유추하기 어려운 문제가 있음
@@ -121,7 +121,7 @@
 <img src="image/Untitled%206.png" width="90%" height="90%" >
 
 
-### □ [Data Generator](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/04.feature_%EC%83%9D%EC%84%B1.ipynb)
+### □ [Data Generator](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/04.feature_%EC%83%9D%EC%84%B1.ipynb)
 
 1. 누적 행동 데이터 생성
 
@@ -152,7 +152,7 @@ User2Vec을 활용하여 같은 품목을 구매한 User들의 상관관계를 �
 
 - 유사한 상품에 대하여 Cosine Similarity값이 상대적으로 높은 것을 확인.
 
-### □ [Feature Selection](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/04.feature_%EC%83%9D%EC%84%B1.ipynb)
+### □ [Feature Selection](https://github.com/sangun777/L_point_Recommendation_System/blob/master/Source/05.User2Vec_%ED%95%99%EC%8A%B5.ipynb)
 
 Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)에 대한 시각화 수행.
 

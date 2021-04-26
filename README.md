@@ -59,7 +59,7 @@
 | 8주차  |  Wide&Deep 모델 수행, 데이터 엔지니어링   | 온라인 | 
 | 9주차  |   결과 시각화, 모델 개선과 실험  | 온라인 | 
 | 10주차 |   PPT 작성, 최종 발표  | 온라인 | 
-- 코로나 상황 악화에 따라 4주차부터 Google meet을 활용하여 온라인 미팅으로 프로젝트 진행
+- 코로나 상황 악화에 따라 4주차부터 Google meet을 활용하여 온라인 미팅으로 프로젝트 진행.
 
 
 <br>
@@ -80,9 +80,9 @@
 
 ![image/Untitled%202.png](image/Untitled%202.png)
 
-- Input 데이터 형식 : Raw 데이터 + 생성 데이터 + 임베딩 데이터 + 외부 데이터
-- Model 사용 : Wide & Deep Model
-- 평가지표 : MAP, Entropy-Diversity
+- Input 데이터 : L.Point 데이터 + 생성 데이터 + 임베딩 데이터 + 외부 데이터
+- Model : Wide & Deep Model
+- 평가 지표 : MAP, Entropy-Diversity
 
 ## Process
 
@@ -93,7 +93,7 @@
     <img src="image/Untitled%203.png" width="80%" height="80%">
 
     - 결제 시도와 구매 완료의 많은 양의 데이터 수 차이 존재
-    - 결제 시도 과정에서 다량의 중복 데이터가 확인됨
+    - 결제 시도 과정에서 다량의 중복 데이터가 확인
 
 - 일자별 활동량 추이
 
@@ -107,35 +107,36 @@
 
     <img src="image/Untitled%205.png" width="80%" height="80%">
 
-    - 고객의 성별은 여성이 가장 많고, 나이는 30~40대가 대다수를 차지.
-    - 성별과 나이로 고객 타입을 분류한 후 분석한 결과 구매 품목 차이를 보임.
+    - 고객의 성별은 여성이 84.5%로 다수 분포
+    - 고객의 나이는 30대가 35.2% 40대가 40.4%로 다수 분포.
+    - 30대~40대 여성 성향에 따른 구매 품목 다수에 영향이 있을 것으로 판단.
 
 ### □ [Keyword Crawling](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/00.Sech_kwd_%EB%A7%A4%ED%95%91.ipynb)
 
-기존의 키워드명은 특정 상품을 설명하기에 어려운 단점이 있었습니다. 그래서 Item 데이터에 있는 명칭과 매칭하기 위해 크롤링을 진행했습니다. 
+- 온라인 행동 데이터는 "검색, 목록, 세부정보, 장바구니 추가, 장바구니 선택, 결제 시도, 구매 완료, 결재 옵션" 8가지 행동 중 
+  오직 "구매"  데이터에만, trans_id 값이 존재하여, 다른 행동이 어떤 상품에 대한 행동인지 유추하기 어려운 문제가 있음
+- "검색" 행동 데이터의 "검색 키워드(sech_kwd)"를 활용하여 상품을 유추하는 방안 계획
+    1. 검색 키워드 값을 롯데홈쇼핑 메인 페이지 검색창에 검색
+    2. 결과로 나오는 상품 분류명을 scraping하여 해당 상품 유추
+    3. scraping 한 상품 분류명을 매칭되는 상품 분류 정보의 "중분류명(clac_nm2)"으로 변경
 
 <img src="image/Untitled%206.png" width="90%" height="90%" >
 
-- 검색 행동과 상품의 직접적인 연관성을 파악하기 위해서 크롤링 진행.
-- 크롤링을 통해 키워드를 Item 데이터에 있는 분류명으로 변경.
 
 ### □ [Data Generator](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/04.feature_%EC%83%9D%EC%84%B1.ipynb)
-
-앞서 진행한 EDA에서 얻은 가설을 바탕으로 유의미한 변수를 생성하는 과정을 진행했습니다. 여기서는 생성된 변수의 근거는 생략하겠습니다. 
 
 1. 누적 행동 데이터 생성
 
     <img src="image/Untitled%207.png" width="80%" height="80%">
 
     - 기존 데이터는 고객의 과거 행동 이력을 반영하고 있지 않음.
-    - 행동 변수를 dummy화 시킨 후, 동일 Session 내에서 특정 행동의 빈도를 누적 시켜줌.
+    - 행동 변수를 dummy화 시킨 후, 동일 Session 내에서 특정 행동의 빈도를 누적.
 
 2. 최근 행동 데이터
 
     <img src="image/Untitled%208.png" width="80%" height="80%">
 
-    - 최근 행동 데이터에는 고객이 최근 활동한 시간과 서핑 속도를 반영해줌.
-    - 그 결과 고객의 행동 패턴을 더 잘 표현 할 수 있었음.
+    - 고객의 행동 패턴 반영을 위하여 최근 행동 데이터에는 고객이 최근 활동한 시간과 서핑 속도를 반영.
 
 3. 선호 채널과 기기
 
@@ -143,57 +144,49 @@
 
 
     - 시각화 결과 같은 기기라도 유입채널이 다르면 다른 분포를 가지고 있음.
-    - 두 변수를 묶어줌으로 선호하는 경로를 데이터에 반영해줌.
-
-4. 외부 데이터 (기상청)  
-
-    <img src="image/Untitled%2010.png" width="80%" height="80%">
-
-    - EDA 결과에서 날짜 별로 일정 패턴이 존재함을 확인.
-    - 좀 더 세밀한 분석을 위해 기상 데이터를 활용.
+    - 두 변수를 결합하여 선호하는 경로를 데이터에 반영.
 
 ### □ [User2Vec](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/05.User2Vec_%ED%95%99%EC%8A%B5.ipynb)
 
-User가 같이 구매한 Item의 특징을 분석하면 같은 품목을 구매한 다른 User와 상관관계를 분석할 수 있다고 판단하였습니다. 
+User2Vec을 활용하여 같은 품목을 구매한 User들의 상관관계를 분석.
 
 <img src="image/Untitled%2011.png" width="90%" height="90%">
 
-- Row별로 한개 씩 있는 제품을 고객과 세션을 기준으로 장바구니로 묶어줌.
-- Cosine Similarity로 평가한 결과 유사한 상품 구매의 경우 벡터의 위치가 가까움.
+- 유사한 상품에 대하여 Cosine Similarity값이 상대적으로 높은 것을 확인.
 
 ### □ [Feature Selection](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/04.feature_%EC%83%9D%EC%84%B1.ipynb)
 
-Feature engineering과 User2Vec을 마친 후 변수의 중요도를 시각화 해보았습니다. base model인 LGBM 모델을 돌려서 성능 저하가 발생하면 feature을 제거하는 방법을 선택했습니다. 
+Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)에 대한 시각화 수행.
 
 <img src="image/Untitled%2012.png" width="80%" height="80%">
 
-- 중요도 파악 결과 Positive 변수와 Negative 변수로 나눔.
-- Negative 변수는 추후 모델을 돌릴 때 제거.
+- 모델에 적용할 Input Feature 선택 시, Feature Importance 수치를 반영하여 상대적으로 낮은 수치의 Feature는 Input Data에서 제외함.
 
 ### □ [Model](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
-저희는 Wide model과 Deep Model이 결합된 형태인 Wide & Deep 모델을 사용했습니다. Implicit 변수가 많은 L.point 데이터의 추천시스템으로 적합하다고 판단했습니다. 
+- Wide model과 Deep Model이 결합된 형태인 Wide & Deep 모델을 사용
 
 ![image/Untitled%2013.png](image/Untitled%2013.png)
 
 - Wide 모델의 경우 Categorical Feature에 대하여 Cross Product 수행하여 새로운 Feature 생성.
 - Deep 모델의 경우 Continuous Feature와 Categorical Feature를 Embedding 하여 복합 적용.
 
-### □ [Metric](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
-저희는 최종적으로 모델을 평가하기 위해서 MAP와 Entropy-Diversity를 사용했습니다. 
+### □ [Evaluation]](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
-- MAP
+- 모델 평가를 위하여 mAP(Mean Average Precision), Entropy-Diversity 평가 지표를 활용
+- 모델이 예측 점수가 높은 상품에 대하여 우선적으로 추천을 수행하므로, 상위 추천 아이템의 구매가 이루어졌을 때, 더 높은 점수를 부여할 수 있는 mAP 지표 활용.
+- 구매 history가 절대적으로 많은 데이터에 제한되어 추천이 발생하지 않았는지, 즉 추천 아이템의 다양성에 대한 확인을 위하여, Entropy-Diversity 지표 활용.
+
+- mAP(Mean Average Precision)
 
     ![image/Untitled%2014.png](image/Untitled%2014.png)
 
-    - 사용 이유 : 추천 점수가 높은 순서로 top-k 개의 아이템을 추천할 때, 상위 추천 아이템을 구매한 것에 더 가중치를 주어서 추천 순서를 차등적으로 평가함.
 
 
 - Entropy-Diversity
 
     <img src="image/Untitled%2015.png" width="90%" height="90%">
 
-    - 사용 이유 : 모든 사용자에게 비슷한 아이템을 추천하지 않고, 개인별 추천 아이템들이 다양하게 추천하였는지 평가함.
 
 ## 🏆 해커톤 결과
 

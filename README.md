@@ -160,7 +160,7 @@ Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)�
 
 <img src="image/Untitled%2012.png" width="80%" height="80%">
 
-- 모델에 적용할 Input Feature 선택 시, Feature Importance 수치를 반영하여 상대적으로 낮은 수치의 Feature는 Input Data에서 제외함.
+- 모델에 적용할 Input Feature 선택 시, Feature Importance 수치를 반영하여 상대적으로 낮은 수치의 Feature는 Input Data에서 제외.
 
 ### □ [Model](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
@@ -171,7 +171,7 @@ Feature engineering과 User2Vec을 마친 후, Feature의 중요도(Importance)�
 - Wide 모델의 경우 Categorical Feature에 대하여 Cross Product 수행하여 새로운 Feature 생성.
 - Deep 모델의 경우 Continuous Feature와 Categorical Feature를 Embedding 하여 복합 적용.
 
-### □ [Evaluation]](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
+### □ [Evaluation](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
 - 모델 평가를 위하여 mAP(Mean Average Precision), Entropy-Diversity 평가 지표를 활용
 - 모델이 예측 점수가 높은 상품에 대하여 우선적으로 추천을 수행하므로, 상위 추천 아이템의 구매가 이루어졌을 때, 더 높은 점수를 부여할 수 있는 mAP 지표 활용.

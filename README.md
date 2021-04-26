@@ -23,10 +23,12 @@
 
 ### **Skills**
 
-- tensorflow 2.3.0
-- python
-- Crawling
+- python 3
+- numpy 
 - pandas
+- selenium
+- tensorflow
+- matplotlib
 
 
 ## 🗒️ Content
@@ -34,8 +36,6 @@
 ---
 
 ### □ **데이터 정보**
-
-총 4개의 데이터를 받았습니다. 
 
 ![image/Untitled.png](image/Untitled.png)
 
@@ -59,6 +59,7 @@
 | 8주차  |  Wide&Deep 모델 수행, 데이터 엔지니어링   | 온라인 | 
 | 9주차  |   결과 시각화, 모델 개선과 실험  | 온라인 | 
 | 10주차 |   PPT 작성, 최종 발표  | 온라인 | 
+- 코로나 상황 악화에 따라 4주차부터 Google meet을 활용하여 온라인 미팅으로 프로젝트 진행
 
 
 <br>
@@ -87,23 +88,20 @@
 
 ### □ [EDA](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/02.%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA.ipynb)
 
-제공된 데이터를 이해하기 위해서 EDA를 진행했습니다. 다양한 파일을 EDA했지만, 대표적인 예시를 보여드리겠습니다. 
-
 - 온라인 행동 유형 시각화
 
     <img src="image/Untitled%203.png" width="80%" height="80%">
 
-    - 결제 시도와 구매 완료의 차이가 많이남.
-    - 분석 결과 결제 시도 과정에서 중복이 많음.
+    - 결제 시도와 구매 완료의 많은 양의 데이터 수 차이 존재
+    - 결제 시도 과정에서 다량의 중복 데이터가 확인됨
 
 - 일자별 활동량 추이
 
     <img src="image/Untitled%204.png" width="80%" height="80%">
 
-    - 일자 별로 활동량을 그래프로 나타냄.
-    - 분석 결과 요일 별로 특정 패턴을 가지고 있음.
-    - 2019-09-15 부근의 과도한 하락은 추석 명절 때문이라고 판단.
-    - 추가 분석을 위해서 외부데이터(기상청) 사용
+    - 일자 별 활동량을 그래프로 시현
+    - 요일 별 유사패턴이 확인, 요일 Feature 추가 고려
+    - 2019-09-15 부근의 급격한 하락은 추석 명절에 따른 영향으로 분석
 
 - 고객 분포
 
@@ -170,11 +168,11 @@ Feature engineering과 User2Vec을 마친 후 변수의 중요도를 시각화 �
 <img src="image/Untitled%2012.png" width="80%" height="80%">
 
 - 중요도 파악 결과 Positive 변수와 Negative 변수로 나눔.
-- Negative 변수는 추후 모델을 돌릴 때 제거시킴.
+- Negative 변수는 추후 모델을 돌릴 때 제거.
 
 ### □ [Model](https://github.com/PEBpung/Lpoint-Hackathon/blob/master/src/07.Wide%26Deep_%EB%AA%A8%EB%8D%B8_%ED%95%99%EC%8A%B5-all.ipynb)
 
-저희는 Wide model과 Deep Model이 결합된 형태인 Wide & Deep 모델을 사용했습니다. Implicit 변수가 많은 Lpoin 데이터의 추천시스템으로 적합하다고 판단했습니다. 
+저희는 Wide model과 Deep Model이 결합된 형태인 Wide & Deep 모델을 사용했습니다. Implicit 변수가 많은 L.point 데이터의 추천시스템으로 적합하다고 판단했습니다. 
 
 ![image/Untitled%2013.png](image/Untitled%2013.png)
 
@@ -201,18 +199,5 @@ Feature engineering과 User2Vec을 마친 후 변수의 중요도를 시각화 �
 
 ---
 
-- Affel에서 총 13명의 팀이 해커톤을 진행했습니다.
-- 최종 발표 심사위원은 애자일소다 대표님, 교장선생님, 퍼실리테이터 분들 이었습니다.
-- 중간 발표와 최종 발표 합산 결과 **우수상**을 받았습니다.
-
-## ✍️ 느낀 점
-
----
-
-- Aiffel과정 특성 상 딥러닝에 초점이 맞춰진 교육이었는데, 데이터 분석 프로젝트를 진행하니까 어려운 부분이 많았습니다.
-    - 캐글이나 데이콘의 e-commerce 데이터를 다룬 노트북을 참고해서 이해하려고 노력했습니다.
-    - 여러가지 파생변수를 만들때 효용성과 필요성을 분석하기 위한 여러가지 방법을 추가적으로 학습했습니다.
-- 팀 프로젝트 진행 시 코로나로 인해서 온라인 미팅의 어려움이 있었습니다.  그래서  소통과 스케줄링이 더욱 중요하다는 사실을 깨달았습니다.
-    - 각자 진행하는 파트를 공유하기 위해 적절한 예시와 정리로 온라인 의사소통을 원활하게 진행했습니다.
-    - 모두 모여서 적절한 파트 분배를 했고, 진행하면서 어려운 부분은 미팅 시간에 화면 공유를 통해 아이디어를 모았습니다.
-    - 분업을 할 수 있는 부분에서는 파트를 분배하고, 집중해야 될 부분은 단계를 세워서 진행했습니다.
+- **심사 위원** : 애자일소다 최대우 대표님, AIFFEL 이지석 교장선생님, AIFFEL 퍼실리테이터님들
+- 중간 발표와 최종 발표 합산 결과 **우수상** 수여
